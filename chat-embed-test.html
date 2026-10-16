@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pabbly AI Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --brand: #20b276;
+        --brand-dark: #138a59;
+        --ink: #16181d;
+        --muted: #5b6170;
+        --line: #e6e8ee;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: radial-gradient(ellipse at 30% 0%, #e3f7ec 0%, #fff 55%) #fff;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      nav { border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.8); }
+      nav .wrap { display: flex; align-items: center; height: 64px; }
+      .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+      .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; }
+      .logo-mark {
+        width: 30px; height: 30px; border-radius: 8px;
+        background: linear-gradient(135deg, var(--brand), #0f7bd8);
+        display: grid; place-items: center; color: #fff; font-size: 0.9rem;
+      }
+
+      .hero { flex: 1; display: flex; align-items: center; }
+      .hero .wrap { max-width: 860px; text-align: center; padding-bottom: 60px; }
+      .pill {
+        display: inline-block; padding: 6px 14px; border-radius: 999px;
+        background: #dff5ea; color: var(--brand-dark); font-size: 0.82rem; font-weight: 600;
+        margin-bottom: 22px;
+      }
+      h1 { font-size: clamp(2.3rem, 5.5vw, 3.8rem); line-height: 1.06; margin: 0 0 20px; letter-spacing: -0.025em; }
+      h1 span { color: var(--brand); }
+      .lead { font-size: 1.18rem; line-height: 1.6; color: var(--muted); margin: 0 auto 28px; max-width: 640px; }
+      .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+      .chip {
+        padding: 8px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line);
+        font-size: 0.9rem; color: var(--ink);
+      }
+
+      .pointer {
+        position: fixed;
+        right: 92px;
+        bottom: 64px;
+        width: 260px;
+        pointer-events: none;
+        text-align: right;
+      }
+      .pointer-label {
+        font-family: "Caveat", "Segoe Print", cursive;
+        font-size: 2rem;
+        color: var(--brand-dark);
+        line-height: 1.05;
+        margin-right: 70px;
+        transform: rotate(-4deg);
+        display: inline-block;
+      }
+      .pointer svg { display: block; margin-left: auto; overflow: visible; }
+      .pointer path { stroke: var(--brand); stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .pointer .line { stroke-dasharray: 7 8; animation: flow 1.2s linear infinite; }
+      @keyframes flow { to { stroke-dashoffset: -30; } }
+      .pointer { animation: nudge 1.6s ease-in-out infinite; }
+      @keyframes nudge { 50% { transform: translate(6px, 6px); } }
+
+      @media (max-width: 640px) {
+        .pointer { right: 76px; bottom: 56px; width: 200px; }
+        .pointer-label { font-size: 1.6rem; margin-right: 40px; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="wrap">
+        <span class="logo"><span class="logo-mark">P</span> Pabbly Connect</span>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="wrap">
+        <span class="pill">New: AI Agent in Pabbly Connect</span>
+        <h1>Automations that <span>think</span> before they act.</h1>
+        <p class="lead">
+          Give an AI Agent a goal, a model and your apps as tools. It reads the data, decides the
+          next step and gets the job done across 2,000+ apps. No code.
+        </p>
+        <div class="chips">
+          <span class="chip">🧠 OpenAI, Claude, Gemini</span>
+          <span class="chip">🧰 Your apps as tools</span>
+          <span class="chip">💬 Chat on your website</span>
+          <span class="chip">🗂️ Memory</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="pointer" aria-hidden="true">
+      <div class="pointer-label">Try the agent live!</div>
+      <svg width="120" height="90" viewBox="0 0 120 90">
+        <path class="line" d="M10 4 C 30 50, 70 70, 108 82" />
+        <path d="M94 70 L 110 83 L 92 90" />
+      </svg>
+    </div>
+
+    <!-- The snippet a customer pastes. Everything else on this page is scenery. -->
+    <script src="https://testconnect.pabbly.com/backend/v1/chat/embed.js" data-token="pIT4p_xkWFRg9fhUUpInLL8iArsUFusW" async></script>
+  </body>
+</html>
